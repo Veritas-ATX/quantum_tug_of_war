@@ -9,9 +9,9 @@ Accurately tracks state (but if you find an error, please update!)
 Treats measurement as if it is equivalent to passing
 vs. Random Bot 10000 games:
 Percent win as team 0: 85.69%
-Percent win as team 1: 
+Percent win as team 1: 85.67%
 '''
-class MyStrategy_V3(GameBot):
+class MyStrategy(GameBot):
     '''
         Initialize your bot here. The init function must take in a bot_name.
         You can use this to initialize any variables or data structures
