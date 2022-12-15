@@ -133,7 +133,7 @@ class MyStrategy(GameBot):
         closest = closeness.index(min(closeness))
         
         # if current state is nearest to ket 0
-        if closet == 0:
+        if closest == 0:
             
             if self.team == 0:
                 # do nothing
@@ -147,7 +147,7 @@ class MyStrategy(GameBot):
                     best_action = GameAction.HADAMARD
                     
         # if current state is nearest to ket 1
-        elif closet == 1:
+        elif closest == 1:
             
             if self.team == 0:
                 # If we have an X, play it
@@ -161,7 +161,7 @@ class MyStrategy(GameBot):
                 pass 
             
         # if current state is nearest to ket plus
-        elif closet == 2:
+        elif closest == 2:
             
             if self.team == 0:
                 # If we have a Hadamard, play it
