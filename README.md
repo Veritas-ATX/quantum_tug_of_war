@@ -7,7 +7,7 @@ Below table is for performance tracking.
 Expand into table for further bot comparisons!
 
 | Bot Name | vs. Bot | Team $\ket{0}$ Win % | Team $\ket{1}$ Win % |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Austin Basic Bot | Random Bot | 85.69 | 85.67 |
 | Austin HXM Bot | Random Bot | 90.32 | 89.1 |
 | Austin HXM Bot | Austin Basic Bot | 50.2 | 54.64 |
