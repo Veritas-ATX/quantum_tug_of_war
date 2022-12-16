@@ -1,7 +1,8 @@
 # quantum_tug_of_war
 This is a repository to store tug of war playing bots for the Columbia University course: COMS 4281 Intro. to Quantum Computing.
 ## Current Leaderboard
-1. Austin Basic Bot
+1. Austin HXM Bot
+2. Austin Basic Bot
 
 Below table is for performance tracking.
 Expand into table for further bot comparisons!
