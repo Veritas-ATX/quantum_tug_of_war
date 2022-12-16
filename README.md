@@ -6,9 +6,11 @@ This is a repository to store tug of war playing bots for the Columbia Universit
 Below table is for performance tracking.
 Expand into table for further bot comparisons!
 
-| Bot Name | File | vs. Bot | Team $\ket{0}$ Win % | Team $\ket{1}$ Win % |
+| Bot Name | vs. Bot | Team $\ket{0}$ Win % | Team $\ket{1}$ Win % |
 | --- | --- | --- | --- | --- |
-| Austin Basic Bot | austin_basic_bot.py | Random Bot | 85.69 | 85.67 |
+| Austin Basic Bot | Random Bot | 85.69 | 85.67 |
+| Austin HXM Bot | Random Bot | 90.32 | 89.1 |
+| Austin HXM Bot | Austin Basic Bot | 50.2 | 54.64 |
 
 NOTE: All stats generated using the following:
 ```python
