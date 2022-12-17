@@ -4,12 +4,11 @@ import random
 from GamePlayer import *
 
 '''
-Looks only at current round maxing and assumes opponent has no impact.
-Accurately tracks state (but if you find an error, please update!)
-Treats measurement as if it is equivalent to passing
-vs. Random Bot 10000 games:
-Percent win as team 0: 85.69%
-Percent win as team 1: 85.67%
+Finds which basic state (ket 0,1,+,-) the current state is closest to
+Based on the closest state, the strategy will play specific cards based on getting the state closer to the team state
+For example, if we're on team 0 and current state is closest to 1, play X card if we have one
+Percent win as team 0: 55.41%
+Percent win as team 1: 54.37%
 '''
 
 class AbramStrategy(GameBot):
