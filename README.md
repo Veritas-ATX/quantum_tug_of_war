@@ -19,6 +19,9 @@ Expand into table for further bot comparisons!
 | Austin All X Bot | Austin Basic Bot | 54.9 | 60.68 |
 | Austin All X Bot | Austin HXM Bot | 57.07 | 60.25 |
 | Austin Smart All X Bot | Austin All X Bot | 48.64 | 54.35 |
+| Austin Smart All X Bot | Austin HXM Bot | 62.14 | 65.51 |
+| Austin Smart All X Bot | Austin Basic Bot | 56.99 | 61.89 |
+| Austin Smart All X Bot | Random Bot | 84.2 | 84.98 |
 | Abram Basic Bot | Random Bot | 55.41 | 54.37 |
 
 NOTE: All stats generated using the following:
