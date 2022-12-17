@@ -16,11 +16,11 @@ This smart version of the bot is the same as the original All X's Bot except wit
 the new addition of logic surround the use of the H gate in the end game.
 The thought process behind this new logic was surround the low probability that a
 bot is able to get a hand full of X gates before round 100.
-This probability was calulated to be only 18.21%, so to accomodate for this low
+This probability was calculated to be only 18.21%, so to accomodate for this low
 probability, after round 70, our bot also allows H gates to take a position in our hand.
 Meaning ideally our bot will have a full hand of X's and H's which can happen with
 much higher probability we calculate to be 92.98%
-These H gates are often do not provide us with as large as advantage as X gates do, 
+These H gates often do not provide us with as large an advantage as X gates do, 
 but in many cases an H gate can still pull the state closer to our team.
 
 Probabilities were found using binomial probability calculations, given that we know 
