@@ -1,10 +1,11 @@
 # quantum_tug_of_war
 This is a repository to store tug of war playing bots for the Columbia University course: COMS 4281 Intro. to Quantum Computing.
 ## Current Leaderboard
-1. Austin All X Bot
-2. Austin HXM Bot
-3. Austin Basic Bot
-4. Random Bot
+1. Austin Smart All X Bot
+2. Austin All X Bot
+3. Austin HXM Bot
+4. Austin Basic Bot
+5. Random Bot
 
 Below table is for performance tracking.
 Expand into table for further bot comparisons!
@@ -17,6 +18,7 @@ Expand into table for further bot comparisons!
 | Austin All X Bot | Random Bot | 81.85 | 82.1 |
 | Austin All X Bot | Austin Basic Bot | 54.9 | 60.68 |
 | Austin All X Bot | Austin HXM Bot | 57.07 | 60.25 |
+| Austin Smart All X Bot | Austin All X Bot | 48.64 | 54.35 |
 
 NOTE: All stats generated using the following:
 ```python
