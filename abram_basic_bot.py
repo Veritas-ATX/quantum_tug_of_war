@@ -50,8 +50,12 @@ class MyStrategy(GameBot):
         return state, direction
             
     def update_team(self, prev_turn, team):
-        prev_action = prev_turn[f'team{team}_action']
-        prev_measurement = prev_turn[f'team{team}_measurement']
+        if team == 0:
+            prev_action = prev_turn['team0_action']
+            prev_measurement = prev_turn['team0_measurement']
+        else:
+            prev_action = prev_turn['team1_action']
+            prev_measurement = prev_turn['team1_measurement']
         if prev_action is not None:
             if prev_action == GameAction.MEASURE:
                 self.state = prev_measurement
