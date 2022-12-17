@@ -11,7 +11,8 @@ vs. Random Bot 10000 games:
 Percent win as team 0: 85.69%
 Percent win as team 1: 85.67%
 '''
-class MyStrategy(GameBot):
+
+class AbramStrategy(GameBot):
     '''
         Initialize your bot here. The init function must take in a bot_name.
         You can use this to initialize any variables or data structures
@@ -50,12 +51,8 @@ class MyStrategy(GameBot):
         return state, direction
             
     def update_team(self, prev_turn, team):
-        if team == 0:
-            prev_action = prev_turn['team0_action']
-            prev_measurement = prev_turn['team0_measurement']
-        else:
-            prev_action = prev_turn['team1_action']
-            prev_measurement = prev_turn['team1_measurement']
+        prev_action = prev_turn[f'team{team}_action']
+        prev_measurement = prev_turn[f'team{team}_measurement']
         if prev_action is not None:
             if prev_action == GameAction.MEASURE:
                 self.state = prev_measurement
@@ -112,26 +109,26 @@ class MyStrategy(GameBot):
         
         # burn off duplicates
         if self.hand_size == 5 and self.round <= 100:
-            if list.count(GameAction.REVERSE) > 1:
+            if hand.count(GameAction.REVERSE) > 1:
                 return GameAction.REVERSE
-            elif list.count(GameAction.MEASURE) > 1:
-                return GameAction.MEASURE
-            elif list.count(GameAction.PAULIZ) > 1:
+            elif hand.count(GameAction.PAULIZ) > 1:
                 return GameAction.PAULIZ
-            elif list.count(GameAction.PAULIX) > 1:
-                return GameAction.PAULIX
-            elif list.count(GameAction.HADAMARD) > 1:
+            elif hand.count(GameAction.HADAMARD) > 1:
                 return GameAction.HADAMARD   
+            elif hand.count(GameAction.PAULIX) > 1:
+                return GameAction.PAULIX
+            elif hand.count(GameAction.MEASURE) > 1:
+                return GameAction.MEASURE
         
         best_action = None
         
         # calculating closeness to all of the corner states
         # closeness = [zero, one, plus, minus]
         closeness = [0,0,0,0]
-        closeness[0] = (self.state[0]-1)^2+(self.state[1]-0)^2
-        closeness[1] = (self.state[0]-0)^2+(self.state[1]-1)^2
-        closeness[2] = (self.state[0]-np.sqrt(0.5))^2+(self.state[1]-np.sqrt(0.5))^2
-        closeness[3] = (self.state[0]-np.sqrt(0.5))^2+(self.state[1]+np.sqrt(0.5))^2
+        closeness[0] = (self.state[0]-1)**2+(self.state[1]-0)**2
+        closeness[1] = (self.state[0]-0)**2+(self.state[1]-1)**2
+        closeness[2] = (self.state[0]-np.sqrt(0.5))**2+(self.state[1]-np.sqrt(0.5))**2
+        closeness[3] = (self.state[0]-np.sqrt(0.5))**2+(self.state[1]+np.sqrt(0.5))**2
         
         # get index of smallest distance
         closest = closeness.index(min(closeness))
@@ -139,59 +136,58 @@ class MyStrategy(GameBot):
         # if current state is nearest to ket 0
         if closest == 0:
             
-            if self.team == 0:
+            if team == 0:
                 # do nothing
                 pass 
-            elif self.team == 1:
+            elif team == 1:
                 # If we have an X, play it
-                if GameAction.PAULIX in self.hand:
-                    best_action = GameAction.PauliX
+                if GameAction.PAULIX in hand:
+                    best_action = GameAction.PAULIX
                 # As a backup play Hadamard
-                elif GameAction.HADAMARD in self.hand:
+                elif GameAction.HADAMARD in hand:
                     best_action = GameAction.HADAMARD
                     
         # if current state is nearest to ket 1
         elif closest == 1:
             
-            if self.team == 0:
+            if team == 0:
                 # If we have an X, play it
-                if GameAction.PAULIX in self.hand:
-                    best_action = GameAction.PauliX
+                if GameAction.PAULIX in hand:
+                    best_action = GameAction.PAULIX
                 # As a backup play Hadamard
-                elif GameAction.HADAMARD in self.hand:
+                elif GameAction.HADAMARD in hand:
                     best_action = GameAction.HADAMARD
-            elif self.team == 1:
+            elif team == 1:
                 # do nothing
                 pass 
             
         # if current state is nearest to ket plus
         elif closest == 2:
             
-            if self.team == 0:
+            if team == 0:
                 # If we have a Hadamard, play it
-                if GameAction.HADAMARD in self.hand:
+                if GameAction.HADAMARD in hand:
                     best_action = GameAction.HADAMARD
-            elif self.team == 1:
+            elif team == 1:
                 # if we have a Z, play it
-                if GameAction.PAULIZ in self.hand:
-                    best_action = GameAction.PauliZ
+                if GameAction.PAULIZ in hand:
+                    best_action = GameAction.PAULIZ
                 # if we have a Hadamard and a X, play the Hadamard
                 if GameAction.HADAMARD in self.hand and GameAction.PAULIX in self.hand:
                     best_action = GameAction.HADAMARD
          
         # if current state is nearest to ket minus
         else:
-            if self.team == 0:
+            if team == 0:
                 # if we have a Z, play it
-                if GameAction.PAULIZ in self.hand:
-                    best_action = GameAction.PauliZ
+                if GameAction.PAULIZ in hand:
+                    best_action = GameAction.PAULIZ
                 # if we have a Hadamard and a X, play the Hadamard
                 if GameAction.HADAMARD in self.hand and GameAction.PAULIX in self.hand:
                     best_action = GameAction.HADAMARD
-            elif self.team == 1:
+            elif team == 1:
                 # If we have a Hadamard, play it
-                if GameAction.HADAMARD in self.hand:
+                if GameAction.HADAMARD in hand:
                     best_action = GameAction.HADAMARD
         
         return best_action
-    #######################################################
