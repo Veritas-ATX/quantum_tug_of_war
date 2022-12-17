@@ -22,6 +22,9 @@ Meaning ideally our bot will have a full hand of X's and H's which can happen wi
 much higher probability we calculate to be 92.98%
 These H gates are often do not provide us with as large as advantage as X gates do, 
 but in many cases an H gate can still pull the state closer to our team.
+
+Probabilities were found using binomial probability calculations, given that we know 
+the probabilities of each card being distributed to our team on a given round.
 '''
 class MyStrategy(GameBot):
     '''
