@@ -4,6 +4,10 @@ import random
 from GamePlayer import *
 
 '''
+
+Please find our write up here: https://github.com/Veritas-ATX/quantum_tug_of_war
+
+
 This is the "smart" version of the all X's bot.
 It attempts to get a hand of 5 x's, and if so to wait to play until round 99.
 If it has < 5 X's, it attempts to get rid of everything besides H's first.
