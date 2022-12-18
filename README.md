@@ -22,16 +22,24 @@ Conversely, we disregard the R gate because its effect of changing the direction
 Similarly, we disregard the Z gate because a Z gate would only be helpful to change a state closer to the target state in combination with a Hadmard gate, effectively making it bitflip rotation in a different basis. This would require to expect the next card to be played to be a Hadamard, which we cannot at any time due to our deck and the opponents behavior.
 
 The reason for regarding Hadamard in addition to PauliX that is that the probability for getting at least 5 Xs over 20, expecting 20 cards to be dealt over the 100 rounds, is
-$$\begin{pmatrix}20\\5\end{pmatrix}0.15^5*0.$$
-$$1-P[x<=4] == 1-\sum_{x=0}^4 begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702$$
+
+$1-P[x<=4] == 1-\sum_{x=0}^4 begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702$
+
 where x is the number of X gates dealt. 
 However, the probability of getting at least a full hand of either H or X using the same model gives a probability of 0.9651.
 
 Consequently, we decide to stop playing Hadmard cards for the potential benefit of receiving another X in round 70, since then the probability of receiving another X is lower than 0.5.
 The probability of getting at least 5 more cards in the last 30 rounds, where 5 are required to have a probability of getting at least one X being larger than 0.5, assuming we have not reached our limit in the first 70 rounds, is given by 
-$$1-P[c<=4] == 1-\sum_{x=0}^4 begin{pmatrix}30\\ c\end{pmatrix}0.2^c0.8^{30-c} = 0.7448$$.
+
+$1-P[c<=4] == 1-\sum_{x=0}^4 begin{pmatrix}30\\ c\end{pmatrix}0.2^c0.8^{30-c} = 0.7448$,
+
+where c is the number of cards dealt.
+
 Then the probability of getting at least one X among 5 trials is 
-$$1-P[x=0] == 1-\begin{pmatrix}5\\ 0\end{pmatrix}0.85^{5} = 0.5563$$, so that the total probability of getting another X is $P[x\leq1]P[c>4]=0.414$, which shows that it is rather unlikely to get another X. In turn, in round 60 the same probability is $0.506$. This shows that from approx. round 70 onwards it is preferable to keep the Hadamard in question. If it was a completely undesired card, we would continue to drop them for the prospect of receiving another X or H.
+
+$1-P[x=0] == 1-\begin{pmatrix}5\\ 0\end{pmatrix}0.85^{5} = 0.5563$,
+
+so that the total probability of getting another X is $P[x\geq 1]P[c\geq 5]=0.414$, which shows that it is rather unlikely to get another X. In turn, in round 60 the same probability is $0.506$. This shows that from approx. round 70 onwards it is preferable to keep the Hadamard in question. If it was a completely undesired card, we would continue to drop them for the prospect of receiving another X or H.
 
 
 ### 2) Playing behavior at the end of the game
