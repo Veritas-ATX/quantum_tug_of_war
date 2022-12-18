@@ -23,8 +23,8 @@ Similarly, we disregard the Z gate because a Z gate would only be helpful to cha
 
 The reason for regarding Hadamard in addition to PauliX that is that the probability for getting at least 5 Xs over 20, expecting 20 cards to be dealt over the 100 rounds, is
 
-```math 
-1-P[x<=4] == 1-\sum_{x=0}^4 begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702 
+```math
+1-P[x<=4] = 1-\sum_{x=0}^4 begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702 
 ```
 
 where x is the number of X gates dealt. 
