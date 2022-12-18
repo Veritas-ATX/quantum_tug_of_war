@@ -24,7 +24,7 @@ Similarly, we disregard the Z gate because a Z gate would only be helpful to cha
 The reason for regarding Hadamard in addition to PauliX that is that the probability for getting at least 5 Xs over 20, expecting 20 cards to be dealt over the 100 rounds, is
 
 ```math
-1-P[x<=4] = 1-\sum_{x=0}^4 begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702 
+1-P[x<=4] = 1-\sum_{x=0}^4 \begin{pmatrix}20\\ x\end{pmatrix}0.15^x0.85^{20-x} = 0.1702 
 ```
 
 where x is the number of X gates dealt. 
@@ -34,7 +34,7 @@ Consequently, we decide to stop playing Hadmard cards for the potential benefit 
 The probability of getting at least 5 more cards in the last 30 rounds, where 5 are required to have a probability of getting at least one X being larger than 0.5, assuming we have not reached our limit in the first 70 rounds, is given by 
 
 ```math  
-1-P[c<=4] == 1-\sum_{x=0}^4 begin{pmatrix}30\\ c\end{pmatrix}0.2^c0.8^{30-c} = 0.7448 
+1-P[c<=4] == 1-\sum_{x=0}^4 \begin{pmatrix}30\\ c\end{pmatrix}0.2^c0.8^{30-c} = 0.7448 
 ```
 
 where c is the number of cards dealt.
