@@ -5,7 +5,7 @@ from GamePlayer import *
 
 '''
 
-Please find our write up here (README): https://github.com/Veritas-ATX/quantum_tug_of_war
+PLEASE FIND OUR WRITE-UP HERE (README): https://github.com/Veritas-ATX/quantum_tug_of_war
 
 
 '''
