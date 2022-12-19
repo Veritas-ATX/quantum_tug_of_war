@@ -5,30 +5,9 @@ from GamePlayer import *
 
 '''
 
-Please find our write up here: https://github.com/Veritas-ATX/quantum_tug_of_war
+Please find our write up here (README): https://github.com/Veritas-ATX/quantum_tug_of_war
 
 
-This is the "smart" version of the all X's bot.
-It attempts to get a hand of 5 x's, and if so to wait to play until round 99.
-If it has < 5 X's, it attempts to get rid of everything besides H's first.
-If the round_number and number of cards dealt to the team is sufficiently large,
-the bot does not play its saved up H's until round 99.
-By round 99 the bot can play whatever card it deems maximizes the win prob at the
-end of that round. 
-
-This smart version of the bot is the same as the original All X's Bot except with
-the new addition of logic surround the use of the H gate in the end game.
-The thought process behind this new logic was surrounding the low probability that a
-bot is able to get a hand full of X gates before round 100.
-This probability was calculated to be only 18.21%, so to accomodate for this low
-probability, after round 70, our bot also allows H gates to take a position in our hand.
-Meaning ideally our bot will have a full hand of X's and H's which can happen with
-much higher probability we calculate to be 92.98%
-These H gates often do not provide us with as large an advantage as X gates do, 
-but in many cases an H gate can still pull the state closer to our team.
-
-Probabilities were found using binomial probability calculations, using the known 
-probabilities of each card being distributed to our team on a given round.
 '''
 class MyStrategy(GameBot):
     '''
